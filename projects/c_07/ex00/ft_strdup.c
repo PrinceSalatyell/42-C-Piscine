@@ -10,42 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_strlen(char *str)
-{
-	int	l;
-
-	l = 0;
-	while (*str)
-	{
-		l++;
-		str++;
-	}
-	return (l);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
+#include<stdio.h>
+#include<stdlib.h>
 
 char	*ft_strdup(char *src)
 {
-	int		n;
-	char	*res;
+	char	*dest;
+	int		i;
 
-	n = ft_strlen(src);
-	res = malloc(sizeof(char) * n);
-	ft_strcpy(res, src);
-	return (res);
+	i = 0;
+	while (src[i])
+		i++;
+	dest = malloc (sizeof(char) * (i + 1));
+	dest[i] = '\0';
+	while (--i >= 0)
+		dest[i] = src[i];
+	return (dest);
 }
