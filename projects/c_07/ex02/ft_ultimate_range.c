@@ -10,34 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include<stdlib.h>
+#include<stdio.h>
 
 int	*ft_range(int min, int max)
 {
-	int	*numbers;
+	int	*m;
 	int	i;
 
-	i = 0;
 	if (min >= max)
-	{
-		numbers = NULL;
-		return (numbers);
-	}
-	if (!numbers)
 		return (0);
-	else
+	m = (int *)malloc(sizeof(int) * (max - min));
+	if (!m)
+		return (0);
+	i = 0;
+	while (i < (max - min))
 	{
-		numbers = (int *)malloc(sizeof(int) * (max - min));
-		while (min < max)
-		{
-			numbers[i] = min;
-			min++;
-			i++;
-		}
+		m[i] = min + i;
+		i++;
 	}
-	return (numbers);
+	return (m);
 }
 
 int	ft_ultimate_range(int **range, int min, int max)
